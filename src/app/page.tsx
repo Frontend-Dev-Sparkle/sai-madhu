@@ -1,6 +1,7 @@
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/server";
 // export const dynamic = "force-dynamic";
 export default async function Home() {
+  const supabase = await createClient();
   const { data, error } = await supabase.from("batches").select("*");
   const { data: updateAttempt, error: updateError } = await supabase
     .from("batches")
