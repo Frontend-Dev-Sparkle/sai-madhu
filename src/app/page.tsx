@@ -1,23 +1,19 @@
+import BatchBanner, { Batch } from "@/components/batchBanner";
 import { createClient } from "@/lib/server";
-// export const dynamic = "force-dynamic";
+
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const supabase = await createClient();
-  const { data, error } = await supabase.from("batches").select("*");
-  const { data: updateAttempt, error: updateError } = await supabase
+  const { data: batch, error } = await supabase
     .from("batches")
-    .update({ slots_remaining: 999 })
-    .eq("id", data?.[0]?.id)
-    .select();
+    .select("*")
+    .eq("status", "open")
+    .maybeSingle();
 
-  console.log("Update attempt:", { updateAttempt, updateError });
   return (
-    <main className="p-8">
-      <h1 className="text-2xl font-bold">Sai Madhu</h1>
-      <pre className="mt-4 text-sm">
-        {error
-          ? `Error: ${error.message}`
-          : `Connected! Batches: ${JSON.stringify(data)}`}
-      </pre>
+    <main className="p-0">
+      <BatchBanner initialBatch={batch as Batch} />
     </main>
   );
 }
