@@ -4,6 +4,21 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --color-paper: #f3ecd9;
+  --color-paper-alt: #eae2cb;
+  --color-ink: #2b2117;
+  --color-ink-soft: #5b5142;
+  --color-forest: #3c5240;
+  --color-forest-deep: #26362a;
+  --color-gold: #a8791b;
+  --color-rust: #9c4a2e;
+  --color-line: #d9cfb3;
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
