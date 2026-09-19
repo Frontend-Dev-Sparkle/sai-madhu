@@ -1,9 +1,11 @@
-import BatchBanner, { Batch } from "@/components/batchBanner";
+import BatchBanner from "@/components/batchBanner";
 import { createClient } from "@/lib/server";
 import Hero from "@/components/hero";
 import Story from "@/components/story";
 import Ingredients from "@/components/ingredients";
 import Header from "@/components/header";
+import { BatchProvider } from "@/components/batchProvider";
+import OrderSection from "@/components/orderSection";
 
 export const dynamic = "force-dynamic";
 
@@ -16,12 +18,15 @@ export default async function Home() {
     .maybeSingle();
 
   return (
-    <main className="p-0">
-      <Header />
-      <BatchBanner initialBatch={batch as Batch} />
-      <Hero />
-      <Story />
-      <Ingredients />
-    </main>
+    <BatchProvider initialBatch={batch}>
+      <main className="p-0">
+        <Header />
+        <BatchBanner />
+        <Hero />
+        <Story />
+        <Ingredients />
+        <OrderSection />
+      </main>
+    </BatchProvider>
   );
 }

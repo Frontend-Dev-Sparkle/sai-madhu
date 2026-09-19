@@ -1,60 +1,8 @@
 "use client";
+import { useBatch } from "./batchProvider";
 
-import { useState, useEffect, useRef } from "react";
-import { createClient } from "@/lib/client";
-import { error } from "console";
-
-export type Batch = {
-  id: string;
-  name: string;
-  status: string;
-  slot_limit: number;
-  slots_remaining: number;
-};
-
-export default function BatchBanner({
-  initialBatch,
-}: {
-  initialBatch: Batch | null;
-}) {
-  const [batch, setBatch] = useState<Batch | null>(initialBatch);
-  const batchRef = useRef(batch);
-
-  useEffect(() => {
-    batchRef.current = batch;
-  }, [batch]);
-
-  useEffect(() => {
-    const supabase = createClient();
-    // WebSocket subscription
-    const subscribe = supabase
-      .channel("batches-changes")
-      .on(
-        "postgres_changes",
-        { event: "*", schema: "public", table: "batches" },
-        (payload) => {
-          console.log("Realtime event received:", payload);
-          if (payload.eventType === "DELETE") return;
-
-          if (payload.new) {
-            const isCurrentBatch =
-              (payload.new as Batch).id === batchRef?.current?.id;
-
-            const isNewBatch =
-              !batchRef?.current && (payload.new as Batch).status == "open";
-
-            if (isCurrentBatch || isNewBatch) {
-              setBatch(payload.new as Batch);
-            }
-          }
-        },
-      )
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(subscribe);
-    };
-  }, []);
+export default function BatchBanner() {
+  const batch = useBatch();
 
   if (!batch) {
     return (
