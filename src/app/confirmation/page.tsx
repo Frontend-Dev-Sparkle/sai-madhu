@@ -51,7 +51,7 @@ export default async function ConfirmationPage({
         link below — it&apos;s the only way to check your status or message me.
       </p>
 
-      <div className="mt-6 px-5 py-4 rounded-sm w-full max-w-xs bg-paper-alt border border-dashed border-line">
+      <div className="mt-6 px-5 py-4 rounded-sm w-full max-w-md bg-paper-alt border-2 border-dashed border-line">
         <div className="font-body text-xs text-ink-soft">
           Your tracking link
         </div>
@@ -59,23 +59,29 @@ export default async function ConfirmationPage({
           {trackingUrl}
         </div>
       </div>
+      <div className="save-link-note mt-4 mb-2 md:mb-0 text-sm md:text-base md:p-4 md:max-w-lg">
+        📌&nbsp;&nbsp;Bookmark this page, or save the link we're about to send
+        you on WhatsApp — you'll use it to check progress and chat with Sai
+        Madhu.
+      </div>
+      <div>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-5 px-6 py-3 rounded-sm flex items-center md:gap-2 bg-[#25D366] text-white font-body font-medium text-sm"
+        >
+          <MessageCircle size={17} />
+          Send confirmation on WhatsApp
+        </a>
 
-      <a
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-5 px-6 py-3 rounded-sm flex items-center gap-2 bg-[#25D366] text-white font-body font-medium text-sm"
-      >
-        <MessageCircle size={17} />
-        Send confirmation on WhatsApp
-      </a>
-
-      <a
-        href={`/track/${order.tracking_code}`}
-        className="mt-4 font-body text-sm text-forest underline"
-      >
-        Go to your order status
-      </a>
+        <a
+          href={`/track/${order.tracking_code}`}
+          className="mt-4 font-body text-sm text-forest px-6 py-3 rounded-sm flex items-center justify-center gap-2 border"
+        >
+          Go to your order status
+        </a>
+      </div>
     </main>
   );
 }

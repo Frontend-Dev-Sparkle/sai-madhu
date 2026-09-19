@@ -13,7 +13,7 @@ const INGREDIENTS = [
 
 export default function Ingredients() {
   return (
-    <section className="px-5 py-10 md:py-16">
+    <section className="px-5 py-10 md:py-16" id="ingredients">
       <div className="max-w-2xl mx-auto">
         <h2 className="font-display font-medium text-ink text-[22px] md:text-[26px]">
           What&apos;s inside

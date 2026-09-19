@@ -1,3 +1,4 @@
+import Image from "next/image";
 export default function Hero() {
   return (
     <section className="flex flex-col md:flex-row items-center gap-8 px-5 py-10 md:py-16">
@@ -13,13 +14,19 @@ export default function Hero() {
           href="#order"
           className="inline-block mt-7 px-6 py-3 rounded-sm bg-forest text-paper font-body font-medium text-sm transition-transform active:scale-95"
         >
-          Reserve your jar
+          Reserve your pack
         </a>
       </div>
       <div className="order-1 md:order-2 flex justify-center flex-1">
         {/* Swap for a real product photo once you have one */}
-        <div className="w-[180px] h-[220px] md:w-[220px] md:h-[260px] rounded-md bg-forest/90 flex items-center justify-center">
-          <span className="font-display text-paper text-sm">Sai Madhu</span>
+        <div className="rounded-md  flex items-center justify-center">
+          <Image
+            alt=""
+            src={"/hero-package-mockup.png"}
+            width={420}
+            height={480}
+            loading="eager"
+          />
         </div>
       </div>
     </section>

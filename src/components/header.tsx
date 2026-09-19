@@ -6,14 +6,14 @@ export default function Header() {
       </span>
 
       {/* Desktop nav */}
-      <nav className="hidden md:flex items-center gap-6 font-body text-sm text-ink-soft">
+      <nav className="flex items-center gap-6 font-body text-sm text-ink-soft">
         <a href="#story" className="hover:text-ink transition-colors">
           Story
         </a>
         <a href="#ingredients" className="hover:text-ink transition-colors">
           Ingredients
         </a>
-        <a href="#order" className="hover:text-ink transition-colors">
+        {/* <a href="#order" className="hover:text-ink transition-colors">
           Order
         </a>
         <a
@@ -21,16 +21,16 @@ export default function Header() {
           className="text-forest font-medium hover:text-forest-deep transition-colors"
         >
           Track your order
-        </a>
+        </a> */}
       </nav>
 
       {/* Mobile: just the track link, everything else lives on the page itself */}
-      <a
+      {/* <a
         href="/track"
         className="md:hidden font-body text-sm text-forest font-medium"
       >
         Track order
-      </a>
+      </a> */}
     </header>
   );
 }

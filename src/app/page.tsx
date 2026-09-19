@@ -6,6 +6,7 @@ import Ingredients from "@/components/ingredients";
 import Header from "@/components/header";
 import { BatchProvider } from "@/components/batchProvider";
 import OrderSection from "@/components/orderSection";
+import Testimonials from "@/components/testimonials";
 
 export const dynamic = "force-dynamic";
 
@@ -25,6 +26,7 @@ export default async function Home() {
         <Hero />
         <Story />
         <Ingredients />
+        <Testimonials />
         <OrderSection />
       </main>
     </BatchProvider>
