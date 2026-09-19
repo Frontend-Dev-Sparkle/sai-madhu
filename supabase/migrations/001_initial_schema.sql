@@ -28,17 +28,3 @@ create table messages (
   flagged boolean default false,
   created_at timestamptz default now()
 );
-
-create or replace function reserve_slot(p_batch_id uuid, p_qty int)
-returns batches as $$
-declare
-  result batches;
-begin
-  update batches
-  set slots_remaining = slots_remaining - p_qty
-  where id = p_batch_id and slots_remaining >= p_qty and status = 'open'
-  returning * into result;
-
-  return result;
-end;
-$$ language plpgsql;
