@@ -31,11 +31,14 @@ export default async function ConfirmationPage({
   if (!order) notFound();
 
   const trackingUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/track/${order.tracking_code}`;
-  const whatsappMessage = encodeURIComponent(
-    `Hi Sai Madhu! I just reserved ${order.quantity} jar${order.quantity > 1 ? "s" : ""}. My tracking code is ${order.tracking_code}.`,
+  // const whatsappMessage = encodeURIComponent(
+  //   `Hi Sai Madhu! I just reserved ${order.quantity} jar${order.quantity > 1 ? "s" : ""}. My tracking code is ${order.tracking_code}.`,
+  // );
+  // const whatsappUrl = `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=${whatsappMessage}`;
+  const selfMessage = encodeURIComponent(
+    `Saving my Sai Madhu order — track it here: ${trackingUrl}`,
   );
-  const whatsappUrl = `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=${whatsappMessage}`;
-
+  const selfWhatsappUrl = `https://wa.me/?text=${selfMessage}`;
   return (
     <main className="min-h-screen bg-paper flex flex-col items-center text-center px-6 py-14">
       <div className="w-14 h-14 rounded-full flex items-center justify-center bg-forest">
@@ -66,13 +69,13 @@ export default async function ConfirmationPage({
       </div>
       <div>
         <a
-          href={whatsappUrl}
+          href={selfWhatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-5 px-6 py-3 rounded-sm flex items-center md:gap-2 bg-[#25D366] text-white font-body font-medium text-sm"
         >
           <MessageCircle size={17} />
-          Send confirmation on WhatsApp
+          Save this link on WhatsApp
         </a>
 
         <a

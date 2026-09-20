@@ -127,6 +127,7 @@ export default function OrderSection() {
 
             <input
               id="order-phone"
+              type="number"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               placeholder="WhatsApp number"
