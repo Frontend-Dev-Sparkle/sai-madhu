@@ -22,7 +22,7 @@ const testimonials = [
   },
   {
     quote:
-      "Very simple to use and it fits perfectly into my weekly hair-care routine. I'll definitely be ordering another jar.",
+      "Very simple to use and it fits perfectly into my weekly hair-care routine. I'll definitely be ordering another pack.",
     name: "Divya M.",
     location: "Madurai",
   },

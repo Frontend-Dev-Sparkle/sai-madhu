@@ -24,7 +24,7 @@ export default function BatchBanner() {
         />
         <span>
           {batch.status === "open"
-            ? `${batch.name} is open — ${batch.slots_remaining} of ${batch.slot_limit} jars left`
+            ? `${batch.name} is open — ${batch.slots_remaining} of ${batch.slot_limit} packs left`
             : `${batch.name} is closed — next batch opens soon`}
         </span>
       </div>

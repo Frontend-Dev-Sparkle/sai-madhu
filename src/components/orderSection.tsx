@@ -63,7 +63,7 @@ export default function OrderSection() {
 
         <p className="font-body text-ink-soft text-sm mb-8">
           {isOpen
-            ? `${slotsLeft} jars left in this batch · no payment needed now`
+            ? `${slotsLeft} packs left in this batch · no payment needed now`
             : `This batch is closed. Leave your details and I'll notify you when the next one opens.`}
         </p>
 

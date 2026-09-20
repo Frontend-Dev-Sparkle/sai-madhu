@@ -32,7 +32,7 @@ export default async function ConfirmationPage({
 
   const trackingUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/track/${order.tracking_code}`;
   // const whatsappMessage = encodeURIComponent(
-  //   `Hi Sai Madhu! I just reserved ${order.quantity} jar${order.quantity > 1 ? "s" : ""}. My tracking code is ${order.tracking_code}.`,
+  //   `Hi Sai Madhu! I just reserved ${order.quantity} pack ${order.quantity > 1 ? "s" : ""}. My tracking code is ${order.tracking_code}.`,
   // );
   // const whatsappUrl = `https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER}?text=${whatsappMessage}`;
   const selfMessage = encodeURIComponent(
@@ -50,7 +50,7 @@ export default async function ConfirmationPage({
       </h1>
 
       <p className="font-body text-ink-soft text-sm max-w-xs mt-2">
-        {order.quantity} jar{order.quantity > 1 ? "s" : ""} reserved. Save the
+        {order.quantity} pack{order.quantity > 1 ? "s" : ""} reserved. Save the
         link below — it&apos;s the only way to check your status or message me.
       </p>
 
