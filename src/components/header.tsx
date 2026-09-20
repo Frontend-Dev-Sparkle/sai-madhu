@@ -7,21 +7,22 @@ export default function Header() {
 
       {/* Desktop nav */}
       <nav className="flex items-center gap-6 font-body text-sm text-ink-soft">
-        <a href="#story" className="hover:text-ink transition-colors">
+        {/* <a href="#story" className="hover:text-ink transition-colors">
           Story
         </a>
         <a href="#ingredients" className="hover:text-ink transition-colors">
           Ingredients
-        </a>
+        </a> */}
         {/* <a href="#order" className="hover:text-ink transition-colors">
           Order
         </a>
+        */}
         <a
-          href="/track"
+          href="/find"
           className="text-forest font-medium hover:text-forest-deep transition-colors"
         >
-          Track your order
-        </a> */}
+          Track order
+        </a>
       </nav>
 
       {/* Mobile: just the track link, everything else lives on the page itself */}
